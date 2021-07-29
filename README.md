@@ -1,5 +1,7 @@
-# Please provide a team name
+# Team Traderz
 ### Team Members
-    - one
-    - two
-    - three
+    - Hongyu Li
+    - William Sexton
+    - Elijah Wilde
+    - Paul Olatunji
+    - Saisantosh Balusu
