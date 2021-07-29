@@ -1,7 +1,7 @@
 # Team Traderz
 ### Team Members
-    - Hongyu Li
-    - William Sexton
-    - Elijah Wilde
-    - Paul Olatunji
-    - Saisantosh Balusu
+    - Hongyu Li (Developer)
+    - William Sexton (Developer)
+    - Elijah Wilde (Scrum Master)
+    - Paul Olatunji (Product Owner)
+    - Saisantosh Balusu (Developer)
