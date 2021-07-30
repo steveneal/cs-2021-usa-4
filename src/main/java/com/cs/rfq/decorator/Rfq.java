@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Rfq implements Serializable {
     private String id;
-    private String isin;
+    private String InstrumentId;
     private Long traderId;
     private Long entityId;
     private Long quantity;
@@ -17,15 +17,16 @@ public class Rfq implements Serializable {
     private String side;
 
     public static Rfq fromJson(String json) {
-        //TODO: build a new RFQ setting all fields from data passed in the RFQ json message
-        return null;
+
+        Rfq r = new Gson().fromJson(json, Rfq.class);
+        return r;
     }
 
     @Override
     public String toString() {
         return "Rfq{" +
                 "id='" + id + '\'' +
-                ", isin='" + isin + '\'' +
+                ", isin='" + InstrumentId + '\'' +
                 ", traderId=" + traderId +
                 ", entityId=" + entityId +
                 ", quantity=" + quantity +
@@ -51,11 +52,11 @@ public class Rfq implements Serializable {
     }
 
     public String getIsin() {
-        return isin;
+        return InstrumentId;
     }
 
-    public void setIsin(String isin) {
-        this.isin = isin;
+    public void setIsin(String InstrumentId) {
+        this.InstrumentId = InstrumentId;
     }
 
     public Long getTraderId() {
