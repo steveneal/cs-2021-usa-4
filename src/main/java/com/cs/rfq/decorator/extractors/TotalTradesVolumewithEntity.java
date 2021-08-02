@@ -17,9 +17,10 @@ public class TotalTradesVolumewithEntity implements RfqMetadataExtractor {
     private long year;
 
     public TotalTradesVolumewithEntity(){
-     this.week = new DateTime().minusWeeks(1).getMillis();
-        this.month = new DateTime().minusMonths(1).getMillis();
-        this.year = new DateTime().minusYears(1).getMillis();
+
+     this.week = DateTime.now().minusWeeks(1).getMillis();
+        this.month = DateTime.now().minusMonths(1).getMillis();
+        this.year = DateTime.now().minusYears(1).getMillis();
 }
 
     @Override
@@ -61,7 +62,7 @@ public class TotalTradesVolumewithEntity implements RfqMetadataExtractor {
                     results.put(volumeTradedforpastYear, volumeforYear);
                     return results;
                 }
-                protected void setweek(long week)  {
+                protected void setWeek(long week)  {
                     this.week = week;
                     this.month = month;
                     this.year = year;
