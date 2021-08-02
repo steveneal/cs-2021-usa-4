@@ -35,7 +35,7 @@ public class TradeDataLoader {
         StructType schema = DataTypes.createStructType(new StructField[]{
                 DataTypes.createStructField("TraderId", LongType, true),
                 DataTypes.createStructField("EntityId", LongType, true),
-                DataTypes.createStructField("SecurityId", StringType, true),
+                DataTypes.createStructField("SecurityID", StringType, true),
                 DataTypes.createStructField("LastQty", LongType, true),
                 DataTypes.createStructField("LastPx", DoubleType, true),
                 DataTypes.createStructField("TradeDate", DateType, true),

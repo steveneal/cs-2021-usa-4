@@ -54,6 +54,11 @@ public class RfqProcessor {
         JavaDStream<String> lines = streamingContext.socketTextStream("localhost", 9000);
 
         //TODO: convert each incoming line to a Rfq object and call processRfq method with it
+        JavaDStream<Rfq> words = lines.map(x -> Rfq.fromJson(x));
+
+        words.foreachRDD(rdd->{
+            rdd.collect().forEach(line -> processRfq(line));
+        });
 
 
         //TODO: start the streaming context
@@ -70,10 +75,16 @@ public class RfqProcessor {
 
         //TODO: get metadata from each of the extractors
         RfqMetadataExtractor meta = new TotalTradesWithEntityExtractor();
-        Map<RfqMetadataFieldNames, Object> mapdata = meta.extractMetaData(rfq, session, trades);
+        //Map<RfqMetadataFieldNames, Object> mapdata = meta.extractMetaData(rfq, session, trades);
+
+        Map<RfqMetadataFieldNames, Object> mapdata = new HashMap<>();
+        for(RfqMetadataExtractor extractor : extractors) {
+            mapdata.putAll(extractor.extractMetaData(rfq, session, trades));
+        }
 
         //TODO: publish the metadatas
         MetadataPublisher publisher = new MetadataJsonLogPublisher();
         publisher.publishMetadata(mapdata);
+
     }
 }
