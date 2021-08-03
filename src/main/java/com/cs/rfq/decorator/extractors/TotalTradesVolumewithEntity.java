@@ -57,18 +57,22 @@ public class TotalTradesVolumewithEntity implements RfqMetadataExtractor {
                     volumeforYear = 0L;}
 
                     Map<RfqMetadataFieldNames, Object> results = new HashMap<>();
-                    results.put(volumeTradedforpastWeek, volumeforWeek);
-                    results.put(volumeTradedforpastMonth, volumeforMonth);
-                    results.put(volumeTradedforpastYear, volumeforYear);
+                    results.put(TotalVolumeEntitytradedforpastWeek, volumeforWeek);
+                    results.put(TotalVolumeEntitytradedforpastMonth, volumeforMonth);
+                    results.put(TotalVolumeEntitytradedforpastYear, volumeforYear);
                     return results;
                 }
                 protected void setWeek(long week)  {
-                    this.week = week;
-                    this.month = month;
+                    this.week = week;}
+
+                    protected void setMonth (long month){
+                         this.month = month;}
+
+                protected void setYear (long year) {
                     this.year = year;
 
-                }
-            }
+        }
+}
 
 
 
