@@ -45,9 +45,7 @@ public class AverageTradedPriceExtractorTest extends AbstractSparkUnitTest {
     @Test
     public void checkVolumeWhenNoTradesMatch() {
 
-        //all test trade data are for 2018 so this will cause no matches
         AverageTradedPriceExtractor extractor = new AverageTradedPriceExtractor();
-        //extractor.setSince("2020-01-01");
 
         Map<RfqMetadataFieldNames, Object> meta = extractor.extractMetaData(request_for_quote, session, tradesWrong);
 
