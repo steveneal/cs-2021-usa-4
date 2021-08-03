@@ -12,6 +12,10 @@ import java.util.Map;
 import static com.cs.rfq.decorator.extractors.RfqMetadataFieldNames.*;
 
 public class AverageTradedPriceExtractor implements RfqMetadataExtractor {
+    private String since;
+    public AverageTradedPriceExtractor() {
+        this.since = DateTime.now().getYear() + "-01-01";
+    }
 
     @Override
     public Map<RfqMetadataFieldNames, Object> extractMetaData(Rfq rfq, SparkSession session, Dataset<Row> trades) {
@@ -38,6 +42,9 @@ public class AverageTradedPriceExtractor implements RfqMetadataExtractor {
         Map<RfqMetadataFieldNames, Object> results = new HashMap<>();
         results.put(RfqMetadataFieldNames.averageTradedPrice, avgPx);
         return results;
+    }
+    protected void setSince(String since) {
+        this.since = since;
     }
 
 }
